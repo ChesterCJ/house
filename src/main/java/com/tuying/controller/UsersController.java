@@ -47,7 +47,7 @@ public class UsersController {
      * @param user
      */
     @PutMapping("/{userId}")
-    public void updateUser(@PathVariable("userId") Long userId,  Users user) {
+    public void updateUser(Users user) {
         usersService.updateUser(user);
     }
 
@@ -56,7 +56,7 @@ public class UsersController {
      *
      * @param userId
      */
-    @Delete("/{userId}")
+    @DeleteMapping("/{userId}")
     public void removeUser(@PathVariable("userId") Long userId) {
         usersService.removeUser(userId);
     }

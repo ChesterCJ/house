@@ -1,10 +1,10 @@
-package com.tuying.service.impl;
+package com.tuying.dao.impl;
 
 import com.tuying.dao.UsersDao;
+import com.tuying.mapper.UsersMapper;
 import com.tuying.model.Users;
-import com.tuying.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -13,11 +13,12 @@ import java.util.List;
  * @version 1.0
  * @date 2021/8/16
  */
-@Service
-public class UsersServiceImpl implements UsersService {
+@Repository
+public class UsersDaoImpl implements UsersDao {
 
     @Autowired
-    private UsersDao usersDao;
+    private UsersMapper usersMapper;
+
 
     /**
      * 查询所有的用户
@@ -26,7 +27,7 @@ public class UsersServiceImpl implements UsersService {
      */
     @Override
     public List<Users> listUsers() {
-        return usersDao.listUsers();
+        return usersMapper.listUsers();
     }
 
     /**
@@ -37,7 +38,7 @@ public class UsersServiceImpl implements UsersService {
      */
     @Override
     public Users getUserById(Long userId) {
-        return usersDao.getUserById(userId);
+        return usersMapper.getUserById(userId);
     }
 
     /**
@@ -47,7 +48,7 @@ public class UsersServiceImpl implements UsersService {
      */
     @Override
     public void saveUser(Users user) {
-        usersDao.saveUser(user);
+        usersMapper.saveUser(user);
     }
 
     /**
@@ -57,7 +58,7 @@ public class UsersServiceImpl implements UsersService {
      */
     @Override
     public void updateUser(Users user) {
-        usersDao.updateUser(user);
+        usersMapper.updateUser(user);
     }
 
     /**
@@ -67,6 +68,6 @@ public class UsersServiceImpl implements UsersService {
      */
     @Override
     public void removeUser(Long userId) {
-        usersDao.removeUser(userId);
+        usersMapper.removeUser(userId);
     }
 }

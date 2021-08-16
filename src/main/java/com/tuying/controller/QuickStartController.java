@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @date 2021/6/18
  */
 @Controller
+@RequestMapping("/users")
 public class QuickStartController {
 
     @ResponseBody
